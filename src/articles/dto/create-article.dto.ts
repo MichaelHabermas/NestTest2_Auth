@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateArticleDto {
-    @ApiProperty()
+    @ApiProperty() // makes visible to Swagger
     title: string;
 
     @ApiProperty({ required: false })
