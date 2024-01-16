@@ -61,8 +61,24 @@ $ npm run test:cov
 ## Commands
 
 ```bash
-# seed
+# Terminal 1
+# make sure Docker desktop is running
+# start database
+$ docker-compose up
+# Terminal 2
+# start Nest BE
+$ npm run start:dev
+# Terminal 3
+
+
+# if schema changes:
+$ prisma migrate dev
+# if db is cleared, or table shape is changed:
 $ npx prisma db seed
+
+
+# Unsorted
+$ prisma generate
 ```
 
 ## Support
