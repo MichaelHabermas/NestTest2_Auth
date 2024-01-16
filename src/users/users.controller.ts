@@ -41,8 +41,8 @@ export class UsersController {
   @Patch(':id')
   @ApiCreatedResponse({ type: UserEntity })
   async update(
-      @Param('id', ParseIntPipe) id: number,
-      @Body() updateUserDto: UpdateUserDto,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateUserDto: UpdateUserDto,
   ) {
     return new UserEntity(await this.usersService.update(id, updateUserDto));
   }
