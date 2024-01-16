@@ -40,8 +40,8 @@ export class UsersController {
   @Patch(':id')
   @ApiCreatedResponse({ type: UserEntity })
   update(
-      @Param('id', ParseIntPipe) id: number,
-      @Body() updateUserDto: UpdateUserDto,
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateUserDto: UpdateUserDto,
   ) {
     return this.usersService.update(id, updateUserDto);
   }

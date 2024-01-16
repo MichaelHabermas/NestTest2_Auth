@@ -5,7 +5,6 @@ import { Response } from 'express';
 
 @Catch(Prisma.PrismaClientKnownRequestError) // ensures that this filter catches exceptions of type PrismaClientKnownRequestError
 export class PrismaClientExceptionFilter extends BaseExceptionFilter {
-
   catch(exception: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
     console.error(exception.message);
     const ctx = host.switchToHttp();
