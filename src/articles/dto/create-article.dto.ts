@@ -1,15 +1,34 @@
 import { ApiProperty } from '@nestjs/swagger';
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
 
 export class CreateArticleDto {
-    @ApiProperty() // makes visible to Swagger
-    title: string;
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(5)
+  @ApiProperty()
+  title: string;
 
-    @ApiProperty({ required: false })
-    description?: string;
+  @IsString()
+  @IsOptional()
+  @IsNotEmpty()
+  @MaxLength(300)
+  @ApiProperty({ required: false })
+  description?: string;
 
-    @ApiProperty()
-    body: string;
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  body: string;
 
-    @ApiProperty({ required: false, default: false })
-    published?: boolean = false;
+  @IsBoolean()
+  @IsOptional()
+  @ApiProperty({ required: false, default: false })
+  published?: boolean = false;
 }
