@@ -78,7 +78,8 @@ $ npx prisma db seed
 
 
 # Unsorted
-$ prisma generate
+# When doing the below, db must be UP, and BE must be DOWN
+$ npx prisma generate
 ```
 
 ## Support
