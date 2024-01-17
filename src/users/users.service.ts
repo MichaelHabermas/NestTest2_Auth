@@ -12,8 +12,8 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto) {
     const hashedPassword = await bcrypt.hash(
-        createUserDto.password,
-        roundsOfHashing,
+      createUserDto.password,
+      roundsOfHashing,
     );
 
     createUserDto.password = hashedPassword;
@@ -34,8 +34,8 @@ export class UsersService {
   async update(id: number, updateUserDto: UpdateUserDto) {
     if (updateUserDto.password) {
       updateUserDto.password = await bcrypt.hash(
-          updateUserDto.password,
-          roundsOfHashing,
+        updateUserDto.password,
+        roundsOfHashing,
       );
     }
 
