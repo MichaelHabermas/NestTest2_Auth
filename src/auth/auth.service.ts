@@ -9,6 +9,7 @@ import { AuthEntity } from './entity/auth.entity';
 
 @Injectable()
 export class AuthService {
+    private bcrypt: any;
     constructor(private prisma: PrismaService, private jwtService: JwtService) {}
 
     async login(email: string, password: string): Promise<AuthEntity> {
@@ -21,7 +22,7 @@ export class AuthService {
         }
 
         // Step 2: Check if the password is correct
-        const isPasswordValid = user.password === password;
+        const isPasswordValid = await this.bcrypt.compare(password, user.password);
 
         // If password does not match, throw an error
         if (!isPasswordValid) {
