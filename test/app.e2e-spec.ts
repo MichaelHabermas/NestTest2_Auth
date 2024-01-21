@@ -29,7 +29,7 @@ describe('AppController (e2e)', () => {
   });
 });
 
-describe('APP e2e', () => {
+describe('APP e2e-', () => {
   let app: INestApplication;
   let prisma: PrismaService;
 
