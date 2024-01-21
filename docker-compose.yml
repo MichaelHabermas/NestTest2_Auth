@@ -2,6 +2,18 @@
 
 version: '3.8'
 services:
+  dev-db:
+    image: postgres:13.5
+    ports:
+      - '5434:5432'
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: nest
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - pgnet
   test-db:
     image: postgres:13.5
     ports:
@@ -10,18 +22,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: test_nest
-    networks:
-    - pgnet
-  dev-db:
-    image: postgres:13.5
-    ports:
-      - '5432:5432'
-    environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: nest
-    volumes:
-      - postgres:/var/lib/postgresql/data
     networks:
       - pgnet
 networks:
