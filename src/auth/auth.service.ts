@@ -38,9 +38,7 @@ export class AuthService {
     }
 
     // Step 3: Generate a JWT containing the user's ID and return it
-    return {
-      accessToken: this.jwtService.sign({ userId: user.id }),
-    };
+    return { access_token: this.jwtService.sign({ userId: user.id }) };
   }
 
   async signUp(dto: AuthDto) {

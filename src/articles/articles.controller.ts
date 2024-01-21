@@ -7,6 +7,8 @@ import {
   Param,
   Delete,
   ParseIntPipe,
+  HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
@@ -59,6 +61,7 @@ export class ArticlesController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   @ApiOkResponse({ type: ArticleEntity })
   async remove(@Param('id', ParseIntPipe) id: number) {
     return new ArticleEntity(await this.articlesService.remove(id));
