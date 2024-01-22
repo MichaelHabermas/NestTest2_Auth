@@ -17,7 +17,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "sleep2s": "node -e \"setTimeout(() => process.exit(0), 2000)\"",
-    "start": "nest start --watch",
+    "start": "npm run db:dev:restart && nest start --watch",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",

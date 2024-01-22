@@ -45,14 +45,12 @@ $ npm run test:cov
 ## Commands
 
 ```bash
-# Terminal 1
 # make sure Docker desktop is running
-# start database
-$ docker-compose up
-# Terminal 2
+
+# start database as a daemon
+$ npm run db:dev:restart
 # start Nest BE
-$ npm run start:dev
-# Terminal 3
+$ npm run start
 
 
 # if schema changes:
@@ -66,7 +64,9 @@ $ npx prisma db seed
 $ npx prisma generate
 ```
 
-## End Points
+## Basic End Points
+
+For the rest, run and check Swagger UI @localhost:3333/api
 
 ```bash
 # Swagger
