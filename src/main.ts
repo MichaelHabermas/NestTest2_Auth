@@ -16,7 +16,7 @@ async function bootstrap() {
 
   const config: Omit<OpenAPIObject, 'paths'> = new DocumentBuilder()
     .setTitle('Median')
-    .setDescription('The Median API description')
+    .setDescription('The Median clone API')
     .setVersion('0.1')
     .addBearerAuth()
     .build();
